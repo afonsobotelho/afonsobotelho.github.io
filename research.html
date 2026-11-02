@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta name="description" content="Afonso Botelho: Senior GNC/AOCS engineer working on spacecraft and launcher guidance, navigation and control." />
+<link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+<link rel="stylesheet" href="style.css" />
+<title>Afonso Botelho</title>
+</head>
+<body>
+<header id="topbar"><div class="topbar-inner">
+<a class="brand" href="index.html">Afonso Botelho</a><nav class="nav">
+<a class="nav-item" href="index.html">Home</a>
+<a class="nav-item current" href="research.html">Research</a>
+<a class="nav-item" href="publications.html">Publications</a>
+<a class="nav-item" href="teaching.html">Teaching</a>
+</nav></div></header>
+<main id="layout-content">
+<div id="toptitle">
+<h1>Research and projects</h1>
+</div>
+<p>I design GNC systems for spacecraft and launchers, from guidance, navigation and control
+algorithms to FDIR, simulation, and verification and validation. A common thread is making
+optimization-based guidance and control fast and reliable enough to run <b>onboard</b>, in
+real time, with guarantees. Below are the main projects I have contributed to at Indra
+Space (formerly DEIMOS Space).</p>
+<h2>Active debris removal: ClearSpace-1 (ESA, ongoing)</h2>
+<p><a href="https://www.esa.int/Space_Safety/ClearSpace-1">ClearSpace-1</a> is ESA's flagship mission
+to capture and remove a piece of space debris. I am the technical lead for the
+<b>close-range GNC</b>.</p>
+<ul>
+<li><p>6-DoF motion-synchronization guidance based on onboard optimization, <b>enabling the
+capture of a tumbling target</b>.</p>
+</li>
+<li><p>Autocodable interior-point solver for convex conic optimization.</p>
+</li>
+<li><p>Explicit optimal thruster allocation with <b>guaranteed worst-case execution time</b> and
+minimum-impulse-bit handling (<a href="publications.html">IEEE TCST 2025</a>).</p>
+</li>
+<li><p>Rendezvous guidance with relative orbital elements, attitude guidance, robust control
+synthesis and FDIR safety monitors.</p>
+</li>
+</ul>
+<h2>Onboard optimal control for safe rendezvous (PhD, 2022&ndash;2026)</h2>
+<p>Industrial PhD at Instituto Superior Técnico, carried out at Indra Space and funded by a
+Portuguese Space Agency / FCT fellowship. The thesis develops model predictive control
+methods for non-cooperative rendezvous that remain safe under uncertainty and are cheap
+enough to run onboard:</p>
+<ul>
+<li><p>Robust and stochastic tube-based MPC, and MPC based on System Level Synthesis.</p>
+</li>
+<li><p>Custom, structure-exploiting optimization solvers (including operator-splitting methods).</p>
+</li>
+<li><p>A high-fidelity rendezvous simulator, including an angles-only relative navigation
+filter (EKF), used to validate the guidance and control.</p>
+</li>
+</ul>
+<p>Results appeared in <i>IEEE TCST</i>, ACC, EuroGNC and the ESA GNC &amp; ICATT conference, with
+more to be published; see
+<a href="publications.html">Publications</a>.</p>
+<h2>Reusable launchers</h2>
+<ul>
+<li><p><b>RETALT and SALTO</b> (European Commission): GNC for the recovery of a reusable launch
+vehicle, matured to <b>TRL 4</b> (processor-in-the-loop), with onboard guidance based on
+lossless and successive convexification.</p>
+</li>
+<li><p><b>SURE</b> (ESA): as work package lead, significantly reduced the onboard computational
+cost of recovery guidance relative to the state of the art, using successive
+convexification with custom first-order methods (xPIPG).</p>
+</li>
+<li><p><b>AI4GNC</b> (ESA): cut the compute load of onboard optimal guidance by an <b>order of
+magnitude</b> with a learned surrogate model.</p>
+</li>
+<li><p><b>VALORS</b> (ESA, ongoing): supervising the work package on reachability analysis for
+worst-case verification and validation of launcher GNC.</p>
+</li>
+<li><p><b>REVLAN</b> (ESA): real-time parafoil guidance based on onboard optimization.</p>
+</li>
+</ul>
+<footer id="footer">
+© Afonso Botelho · Last updated 2026-11-02 16:31:22 WET
+</footer>
+</main>
+</body>
+</html>

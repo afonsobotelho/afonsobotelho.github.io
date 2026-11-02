@@ -1,0 +1,178 @@
+/* Afonso Botelho: personal website stylesheet.
+   Same visual language as the CV: deep navy + steel blue, Roboto Slab headings, Lato text. */
+
+/* Fonts are bundled in assets/fonts (no external requests) */
+@font-face { font-family: "Lato"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/lato-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Lato"; font-weight: 400; font-style: italic; font-display: swap; src: url("assets/fonts/lato-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Lato"; font-weight: 700; font-style: normal; font-display: swap; src: url("assets/fonts/lato-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Lato"; font-weight: 700; font-style: italic; font-display: swap; src: url("assets/fonts/lato-latin-700-italic.woff2") format("woff2"); }
+@font-face { font-family: "Roboto Slab"; font-weight: 500; font-style: normal; font-display: swap; src: url("assets/fonts/roboto-slab-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Roboto Slab"; font-weight: 700; font-style: normal; font-display: swap; src: url("assets/fonts/roboto-slab-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  --navy: #0B2545;
+  --accent: #1F5E99;
+  --steel: #8DA9C4;
+  --ink: #1d232b;
+  --muted: #5a6573;
+  --bg: #ffffff;
+  --surface: #f4f7fa;
+  --border: #dde4ec;
+  --shadow: 0 1px 2px rgba(11, 37, 69, .06), 0 4px 14px rgba(11, 37, 69, .06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --navy: #dbe7f5;
+    --accent: #7fb2e5;
+    --steel: #4c6a8a;
+    --ink: #e3e8ee;
+    --muted: #9aa7b6;
+    --bg: #0e1620;
+    --surface: #152230;
+    --border: #243446;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --navy: #dbe7f5;
+  --accent: #7fb2e5;
+  --steel: #4c6a8a;
+  --ink: #e3e8ee;
+  --muted: #9aa7b6;
+  --bg: #0e1620;
+  --surface: #152230;
+  --border: #243446;
+  --shadow: none;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+b, strong { font-weight: 700; }
+
+/* ---------- Top bar ---------- */
+#topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 900px; margin: 0 auto; padding-block: 0.8rem;
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px)); padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.brand {
+  font-family: "Roboto Slab", Georgia, serif; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; font-size: 1.05rem;
+  color: var(--navy);
+}
+.brand:hover { text-decoration: none; }
+.nav { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+.nav-item { color: var(--muted); font-weight: 700; font-size: .95rem; padding: .2rem 0; border-bottom: 2px solid transparent; }
+.nav-item:hover { color: var(--accent); text-decoration: none; }
+.nav-item.current { color: var(--navy); border-bottom-color: var(--accent); }
+
+/* ---------- Main column ---------- */
+#layout-content { max-width: 900px; margin: 0 auto; padding-block: 2.2rem 1rem;
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px)); padding-right: max(1.25rem, env(safe-area-inset-right, 0px)); }
+
+#toptitle h1, h1 {
+  font-family: "Roboto Slab", Georgia, serif; color: var(--navy);
+  font-size: 1.8rem; line-height: 1.2; margin: .2rem 0 1rem;
+}
+h2 {
+  font-family: "Roboto Slab", Georgia, serif; color: var(--navy);
+  font-size: 1.08rem; text-transform: uppercase; letter-spacing: .04em;
+  margin: 2.2rem 0 .9rem; padding-bottom: .35rem;
+  border-bottom: 2px solid var(--steel);
+}
+h3 { color: var(--navy); font-size: 1.05rem; margin: 1.6rem 0 .5rem; }
+p { margin: 0 0 1rem; }
+ul, ol { padding-left: 1.3rem; margin: 0 0 1rem; }
+li { margin-bottom: .45rem; }
+li p { margin: 0; }
+ul li::marker { color: var(--accent); }
+
+/* ---------- Hero (home page) ---------- */
+.hero { display: flex; gap: 2rem; align-items: center; margin: .5rem 0 2rem; }
+.hero-photo {
+  width: 160px; height: 200px; object-fit: cover; border-radius: 14px;
+  box-shadow: var(--shadow); flex-shrink: 0;
+}
+.hero-name {
+  font-family: "Roboto Slab", Georgia, serif; text-transform: uppercase; letter-spacing: .03em;
+  font-size: 2.05rem; margin: 0 0 .15rem; color: var(--navy);
+}
+.hero-tagline { color: var(--accent); font-weight: 700; font-size: 1.08rem; margin: 0 0 .5rem; }
+.hero-affil { color: var(--muted); margin: 0 0 .7rem; line-height: 1.5; }
+.hero-contact { margin: 0 0 .8rem; line-height: 1.6; }
+.hero-contact i { color: var(--accent); width: 1.3em; }
+.hero-links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem .6rem; }
+.hero-links li { margin: 0; }
+.hero-links a {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .3rem .75rem; border: 1px solid var(--border); border-radius: 999px;
+  font-size: .85rem; color: var(--ink); background: var(--surface);
+}
+.hero-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.hero-links i { color: var(--accent); }
+
+/* ---------- Highlight cards ---------- */
+.highlights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 0 0 1rem; }
+.card {
+  display: flex; gap: .9rem; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: .85rem 1rem; box-shadow: var(--shadow);
+}
+
+.card > i { font-size: 1.35rem; color: var(--accent); width: 1.8rem; text-align: center; margin-top: .15rem; }
+.card-title { font-weight: 700; color: var(--navy); margin: 0 0 .15rem; }
+.card-text { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.45; }
+
+/* ---------- News timeline ---------- */
+.news ul { list-style: none; padding-left: 0; border-left: 2px solid var(--border); margin-left: .4rem; }
+.news li { position: relative; padding-left: 1.2rem; margin-bottom: .9rem; }
+.news li::before {
+  content: ""; position: absolute; left: -7px; top: .55rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--accent);
+}
+.news li b:first-child { color: var(--accent); }
+
+/* ---------- Publications (compact numbered list) ---------- */
+ol { padding-left: 0; list-style: none; counter-reset: pub; font-size: .94rem; line-height: 1.45; }
+ol > li { counter-increment: pub; position: relative; padding-left: 2rem; margin-bottom: .55rem; }
+ol > li::before {
+  content: counter(pub) "."; position: absolute; left: 0; top: 0; width: 1.5rem; text-align: right;
+  font-weight: 700; color: var(--steel);
+}
+.tag { color: var(--accent); font-style: italic; font-weight: 700; }
+
+/* ---------- Footer ---------- */
+#footer {
+  margin-top: 3rem; padding: 1.2rem 0 1.5rem; border-top: 1px solid var(--border);
+  color: var(--muted); font-size: .85rem;
+}
+#footer a { color: var(--muted); }
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  .hero { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  .hero-photo { width: 140px; height: 175px; }
+  .hero-name { font-size: 1.7rem; }
+  .highlights { grid-template-columns: 1fr; }
+  .nav { gap: 1rem; }
+}
